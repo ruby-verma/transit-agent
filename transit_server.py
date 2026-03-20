@@ -1,21 +1,22 @@
 from mcp.server.fastmcp import FastMCP
-import os
+from mcp.server.transport_security import TransportSecuritySettings
 
-# Initialize the FastMCP server
-mcp = FastMCP("Transit-Data-Server")
+# Initialize FastMCP with DNS Rebinding Protection disabled for Docker networking
+mcp = FastMCP(
+    "Transit-Data-Server",
+    transport_security=TransportSecuritySettings(enable_dns_rebinding_protection=False)
+)
 
-# 1. TOOL: Fetch live operational data
 @mcp.tool()
 def check_transit_status(origin: str, destination: str) -> dict:
     """Fetches real-time transit status including delay in minutes."""
     database = {
-        ("Mumbai", "Ahmedabad"): {"status": "On time", "delay_minutes": 0, "transport": "Vande Bharat"},
+        ("Mumbai", "Ahmedabad"): {"status": "On time", "delay_minutes": 0, "transport": "Vande Bharat Express"},
         ("Mumbai", "Bengaluru"): {"status": "Delayed", "delay_minutes": 120, "transport": "Flight Indigo 6E-5234"}
     }
     return database.get((origin, destination), {"error": f"No active schedules found."})
 
-# 2. RESOURCE: Deep knowledge integration (Business Rules)
-@mcp.resource("policy://refunds")
+@mcp.tool()
 def get_refund_policy() -> str:
     """Returns the official corporate refund and compensation policy for transit delays."""
     return """
@@ -25,12 +26,7 @@ def get_refund_policy() -> str:
     - Delays 120 minutes or more: Eligible for a full refund or free rebooking.
     """
 
-# 3. TOOL: Take transactional action based on reasoning
 @mcp.tool()
 def process_compensation(user_id: str, compensation_type: str) -> str:
     """Files a claim for a voucher or refund based on established eligibility."""
     return f"SUCCESS: {compensation_type} processed for user {user_id}. Confirmation email triggered."
-
-if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 8080))
-    mcp.run(transport="sse", port=port)

@@ -3,15 +3,16 @@ version: '3.8'
 services:
   mcp-server:
     build: .
-    command: python transit_server.py
+    # 🚨 FIX: Use the FastMCP CLI to strictly force the host and port!
+    command: fastmcp run transit_server.py --transport sse --host 0.0.0.0 --port 8080
     ports:
       - "8080:8080"
-    environment:
-      - PORT=8080
 
   adk-agent:
     build: .
-    command: python agent.py
+    command: adk web --host 0.0.0.0 --port 8000
+    ports:
+      - "8000:8000"
     environment:
       - GOOGLE_API_KEY=${GOOGLE_API_KEY}
       - MCP_HOST=http://mcp-server:8080
