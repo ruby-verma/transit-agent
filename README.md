@@ -54,7 +54,7 @@ Alertnatively, run this command in cloud shell:
 ```bash
 gcloud services enable aiplatform.googleapis.com generativelanguage.googleapis.com
 ```
-__(Note: If prompted to authorize Cloud Shell, click **Authorize**).__
+__(Note: If prompted to authorize Cloud Shell, click Authorize).__
 
 ## 🚀 Quick Start: Open in Cloud Shell
 To skip local setup and jump straight into the code, click the button below to launch this repository in Google Cloud Shell.
@@ -73,8 +73,6 @@ If you already have Cloud Shell open, simply paste this command into your termin
 ```Bash
 git clone https://github.com/https://github.com/ruby-verma/transit-agent.git && cd transit-agent 
 ```
-``
-(Note: Don't forget to configure your .env file with your Google Gemini API key before running the containers!)``
 
 ### 🔑 Set Up Your API Key
 You will need a Gemini API key to give your agent a brain.
