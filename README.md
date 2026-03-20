@@ -1,4 +1,4 @@
-# 🤖 Build an Autonomous Travel Agent with Google ADK & MCP
+# 🤖 Build an Autonomous Transit Agent with Google ADK & MCP
 
 ## Executive Summary
 Today, we are moving beyond standard chatbots. In this hands-on lab, you will build a deterministic, multi-reasoning **Agentic AI** system using Google's Agent Development Kit (ADK) and the Model Context Protocol (MCP).
@@ -27,8 +27,10 @@ Name your project (e.g., ``gdg-mumbai-agent``) and click **Create**.
 
 Once created, make sure your new project is selected in the top dropdown.
 
-### Step 2: Enable billing
+### Step 2: Enable billing and redeem the credits
 Make sure that billing is enabled for your Cloud project. Learn how to [check if billing is enabled on a project](https://docs.cloud.google.com/billing/docs/how-to/verify-billing-enabled). 
+
+[Redeem Credits](https://codelabs.developers.google.com/codelabs/cloud-codelab-credits) following the setps mentioned in codelab.
 
 ### Step 3: Activate Cloud Shell
 We will use Google Cloud Shell as our terminal so we don't have to install anything locally.
