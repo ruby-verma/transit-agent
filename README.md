@@ -23,6 +23,7 @@ The fastest way to run this lab is directly in Google Cloud Shell.
 
 ### Option 1: The Magic Button
 Click below to automatically launch Cloud Shell and clone this repository:
+
 [![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://shell.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/ruby-verma/transit-agent.git)
 
 ### Option 2: The CLI Method
