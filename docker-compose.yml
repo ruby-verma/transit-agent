@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  mcp-server:
+    build: .
+    command: python transit_server.py
+    ports:
+      - "8080:8080"
+    environment:
+      - PORT=8080
+
+  adk-agent:
+    build: .
+    command: python agent.py
+    environment:
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+      - MCP_HOST=http://mcp-server:8080
+    depends_on:
+      - mcp-server
