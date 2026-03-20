@@ -71,7 +71,7 @@ Click below to automatically launch Cloud Shell and clone this repository:
 If you already have Cloud Shell open, simply paste this command into your terminal:
 
 ```Bash
-git clone https://github.com/https://github.com/ruby-verma/transit-agent.git && cd transit-agent 
+git clone https://github.com/ruby-verma/transit-agent.git && cd transit-agent 
 ```
 
 ### 🔑 Set Up Your API Key
